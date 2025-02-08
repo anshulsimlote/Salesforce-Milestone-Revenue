@@ -12,27 +12,22 @@
     <template lwc:else>
         <lightning-card title="Revenue Recognition Dashboard">  
             <lightning-layout multiple-rows>
-                
                 <lightning-layout-item size="4" padding="around-small">
                     <h3>Total Recognized Revenue: </h3>
                     <lightning-formatted-number aria-label="Total Recognized Revenue" value={oppDataObj.recogoRecognizedAmount} format-style="currency" ></lightning-formatted-number>
                 </lightning-layout-item>      
-
                 <lightning-layout-item size="4" padding="around-small">
                     <h3>Total Invoiced Amount: </h3>
                     <lightning-formatted-number aria-label="Total Recognized Revenue" value={oppDataObj.invoicedAmount} format-style="currency" ></lightning-formatted-number>
                 </lightning-layout-item>      
-
             </lightning-layout>
-
-
-            <lightning-datatable lwc:if={oppDataObj.showRevenueRecognition}
-            hide-checkbox-column
-            data={oppDataObj.revRecMilestonesList}
+            <lightning-tree-grid 
             columns={columns}
-            key-field="milestoneName"
-            ></lightning-datatable>
-
+            data={revenueItems}
+            key-field="id"
+            hide-checkbox-column
+            row-class-name={getRowClass}>
+            </lightning-tree-grid>
         </lightning-card>
     </template>
 </template>
