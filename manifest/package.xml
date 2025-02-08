@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>EC_RevenueRecognitionController</members>
+        <members>EC_RevenueRecognitionMilestoneWrapper</members>
+        <members>EC_OpportunityTriggerHandler</members>
+        <members>EC_CreateOpportuniyInvoiceBatch</members>
+        <members>EC_Constants</members>
+        <members>EC_Exception</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>EC_OpportunityTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>EC_Billing_and_Revenue_Recognition</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>EC_Invoice__c.EC_Amount__c</members>
+        <members>EC_Invoice__c.EC_Invoice_Date__c</members>
+        <members>EC_Invoice__c.EC_Opportunity__c</members>
+        <members>EC_Invoice__c.EC_Status__c</members>
+        <members>EC_IsTriggerEnable__c.EC_Is_Active_Opportunity_Trigger__c</members>
+        <members>Opportunity.EC_Invoiced_Amount__c</members>
+        <members>Opportunity.EC_Remaning_Amount__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>EC_Invoice__c</members>
+        <members>EC_IsTriggerEnable__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>EC_Billing_and_Revenue_Recognition_UtilityBar</members>
+        <members>Opportunity_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>EC_Invoice__c-Invoice Layout</members>
+        <members>Opportunity-Opportunity Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>ecrevenueRecognitionDashboard</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>EC_RevenueRecognitionPermissionSet</members>
+        <name>PermissionSet</name>
+    </types>
+<version>62.0</version>
+</Package>
