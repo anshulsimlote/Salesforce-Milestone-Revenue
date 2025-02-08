@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-08-2025
+ * @last modified on  : 02-09-2025
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class EC_RevenueRecognitionController {
@@ -71,7 +71,6 @@ public with sharing class EC_RevenueRecognitionController {
             
             for (String productName : productRevenueMap.keySet()) {
                 EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData revenueItem = new EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData();
-                revenueItem.key = productName+ '-'+ EC_Constants.deliveryMilestone;
                 revenueItem.name = productName;
                 revenueItem.recognizedRevenue = productRevenueMap.get(productName);
                 initialRevenueRecognition.revRecMilestonesItemList.add(revenueItem);
@@ -79,14 +78,11 @@ public with sharing class EC_RevenueRecognitionController {
 
             oppDataWrapObj.revRecMilestonesList.add(initialRevenueRecognition);
 
-            Integer counter = 1;
             for (String productName : subscribedProductRevenueMap.keySet()) {
                 EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData revenueItem = new EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData();
                 revenueItem.name = productName;
-                revenueItem.key = productName+ '-'+ EC_Constants.subscriptionMilestone+counter;
                 revenueItem.recognizedRevenue = subscribedProductRevenueMap.get(productName);
                 subscribedRevRecMilestonesItemList.add(revenueItem);
-                ++counter;
             }
 
             Date subscriptionStart = opportunityObj.CloseDate;

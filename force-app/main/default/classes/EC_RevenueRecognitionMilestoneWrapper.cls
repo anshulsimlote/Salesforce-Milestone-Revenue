@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-08-2025
+ * @last modified on  : 02-09-2025
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public class EC_RevenueRecognitionMilestoneWrapper {
@@ -32,7 +32,6 @@ public class EC_RevenueRecognitionMilestoneWrapper {
     }
 
     public class EC_RevenueRecognitionItemData {
-        @AuraEnabled public String key;
         @AuraEnabled public String name;
         @AuraEnabled public Decimal recognizedRevenue;
         @AuraEnabled public Date milestoneDate;

@@ -35,23 +35,24 @@ export default class EcRevenueRecognitionDashboard extends LightningElement {
     wiredMilestones({ error, data }) {
         if (data) {
             this.oppDataObj = JSON.parse(data);
-            this.revenueItems = this.transformData(this.oppDataObj );
+            this.revenueItems = this.addKeysData(this.oppDataObj );
         } else if (error) {
             this.showToastMessage('ERROR',error.body.message,'error');
         }
         this.showSpinner = false;
     }
 
-    transformData(milestones) {
+    addKeysData(milestones) {
         return milestones.revRecMilestonesList.map(milestone => ({
-            key: milestone.name,
-            name: milestone.name,
-            recognizedRevenue: milestone.recognizedRevenue,
-            milestoneDate: milestone.milestoneDate,
-            invoiceStatus: milestone.invoiceStatus,
-            _children: milestone.revRecMilestonesItemList
+            ...milestone,                
+            key: milestone.name,         
+            _children: milestone.revRecMilestonesItemList.map(child => ({
+                ...child,               
+                key: milestone.name + '-' +child.name         
+            }))
         }));
     }
+    
 
     showToastMessage(title, message, variant){
         const evt = new ShowToastEvent({
