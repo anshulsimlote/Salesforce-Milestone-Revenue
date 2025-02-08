@@ -14,6 +14,11 @@ const COLUMNS = [
         type: 'currency'
     },
     { 
+        label: 'Milestone Date', 
+        fieldName: 'milestoneDate', 
+        type: 'date'
+    },
+    { 
         label: 'Invoice Status', 
         fieldName: 'invoiceStatus', 
         type: 'text'
@@ -42,12 +47,14 @@ export default class EcRevenueRecognitionDashboard extends LightningElement {
             id: milestone.milestoneName,
             name: milestone.milestoneName,
             recognizedRevenue: milestone.recognizedRevenue,
+            milestoneDate :milestone.milestoneDate,
             invoiceStatus: milestone.invoiceStatus,
             _children: milestone.revRecMilestonesItemList.map(product => ({
                 id: milestone.milestoneName + '-' + product.productName,
                 name: product.productName,
                 recognizedRevenue: product.TotalPrice,
-                invoiceStatus: ''
+                invoiceStatus: '',
+                milestoneDate : null
             }))
         }));
     }
