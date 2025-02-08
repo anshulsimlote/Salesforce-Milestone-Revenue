@@ -5,7 +5,7 @@
  * @last modified on  : 02-08-2025
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
-public class EC_CreateOpportuniyInvoiceBatch implements Database.Batchable<sobject>, Schedulable {
+public with sharing class EC_CreateOpportuniyInvoiceBatch implements Database.Batchable<sobject>, Schedulable {
     
     /**
     * @description 

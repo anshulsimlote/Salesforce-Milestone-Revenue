@@ -23,7 +23,7 @@ public with sharing class EC_OpportunityTriggerHandler {
         * @param oldMap 
         **/
         public static void beforeUpdate(List<Opportunity> newList, Map<Id,Opportunity> oldMap){
-            updateCloseDate(newList,null);
+            updateCloseDate(newList,oldMap);
         }
         /**
         * @description 
