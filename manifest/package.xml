@@ -50,5 +50,9 @@
         <members>EC_RevenueRecognitionPermissionSet</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>EC_Invoice__c</members>
+        <name>CustomTab</name>
+    </types>
 <version>62.0</version>
 </Package>
