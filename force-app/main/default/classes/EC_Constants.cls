@@ -7,7 +7,7 @@
 **/
 public with sharing class EC_Constants {
     public static final String subscriptionMilestone = 'Subscription ';
-    public static final String deliveryMilestone = 'Milestone - Product Delivery';
+    public static final String deliveryMilestone = 'Product Delivery';
     public static final String openStatus = 'Open';
     public static final String closedWonStatus = 'Closed Won';
     public static final String closedLostStatus = 'Closed Lost';
