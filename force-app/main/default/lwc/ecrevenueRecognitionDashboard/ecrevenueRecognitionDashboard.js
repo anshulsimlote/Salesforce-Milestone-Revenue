@@ -35,7 +35,7 @@ export default class EcRevenueRecognitionDashboard extends LightningElement {
     wiredMilestones({ error, data }) {
         if (data) {
             this.oppDataObj = JSON.parse(data);
-            this.revenueItems = this.transformData(JSON.parse(data));
+            this.revenueItems = this.transformData(this.oppDataObj );
         } else if (error) {
             this.showToastMessage('ERROR',error.body.message,'error');
         }
@@ -44,18 +44,12 @@ export default class EcRevenueRecognitionDashboard extends LightningElement {
 
     transformData(milestones) {
         return milestones.revRecMilestonesList.map(milestone => ({
-            id: milestone.milestoneName,
-            name: milestone.milestoneName,
+            key: milestone.name,
+            name: milestone.name,
             recognizedRevenue: milestone.recognizedRevenue,
-            milestoneDate :milestone.milestoneDate,
+            milestoneDate: milestone.milestoneDate,
             invoiceStatus: milestone.invoiceStatus,
-            _children: milestone.revRecMilestonesItemList.map(product => ({
-                id: milestone.milestoneName + '-' + product.productName,
-                name: product.productName,
-                recognizedRevenue: product.TotalPrice,
-                invoiceStatus: '',
-                milestoneDate : null
-            }))
+            _children: milestone.revRecMilestonesItemList
         }));
     }
 

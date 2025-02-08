@@ -68,21 +68,25 @@ public with sharing class EC_RevenueRecognitionController {
                 Decimal currentSubscriptionRevenue = subscribedProductRevenueMap.containsKey(productName) ? subscribedProductRevenueMap.get(productName) : 0;
                 subscribedProductRevenueMap.put(productName, currentSubscriptionRevenue + ((oppLineItem.TotalPrice * 0.6) / 12));
             }
-
+            
             for (String productName : productRevenueMap.keySet()) {
                 EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData revenueItem = new EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData();
-                revenueItem.productName = productName;
-                revenueItem.TotalPrice = productRevenueMap.get(productName);
+                revenueItem.key = productName+ '-'+ EC_Constants.deliveryMilestone;
+                revenueItem.name = productName;
+                revenueItem.recognizedRevenue = productRevenueMap.get(productName);
                 initialRevenueRecognition.revRecMilestonesItemList.add(revenueItem);
             }
 
             oppDataWrapObj.revRecMilestonesList.add(initialRevenueRecognition);
 
+            Integer counter = 1;
             for (String productName : subscribedProductRevenueMap.keySet()) {
                 EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData revenueItem = new EC_RevenueRecognitionMilestoneWrapper.EC_RevenueRecognitionItemData();
-                revenueItem.productName = productName;
-                revenueItem.TotalPrice = subscribedProductRevenueMap.get(productName);
+                revenueItem.name = productName;
+                revenueItem.key = productName+ '-'+ EC_Constants.subscriptionMilestone+counter;
+                revenueItem.recognizedRevenue = subscribedProductRevenueMap.get(productName);
                 subscribedRevRecMilestonesItemList.add(revenueItem);
+                ++counter;
             }
 
             Date subscriptionStart = opportunityObj.CloseDate;
